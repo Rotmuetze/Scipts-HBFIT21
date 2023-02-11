@@ -24,7 +24,7 @@ char tastenLayout[anzZeilen][anzSpalten] = {
 byte zeilenPins[anzZeilen] = { 0, 1, 2, 3 };
 byte spaltenPins[anzSpalten] = { 4, 5, 6, 7 };
 
-//Initialisierung von Keypad
+
 Keypad_I2C i2cKeypad(makeKeymap(tastenLayout), zeilenPins, spaltenPins, anzZeilen, anzSpalten, I2CADDR);
 
 void setup() {
