@@ -1,17 +1,18 @@
 String temp = "";
 String psswd = "1234";
-/*************************(Importieren der genutzten Bibliotheken)*************************/
+
+
 #include <Keypad_I2C.h>
 #include <Keypad.h>
 #include <Wire.h>
 
-/****************************(Definieren der Globale Variablen)***************************/
-#define I2CADDR 0x20  // I2C Adresse vom PCF8574
 
-const byte anzZeilen = 4;   //Anzahl Zeilen
-const byte anzSpalten = 4;  //Anzahl Spalten
+#define I2CADDR 0x20
 
-//Hier kannst du die Symbole von deinem Keypad eintragen
+const byte anzZeilen = 4;
+const byte anzSpalten = 4;
+
+
 char tastenLayout[anzZeilen][anzSpalten] = {
   { '1', '2', '3', 'A' },
   { '4', '5', '6', 'B' },
@@ -19,14 +20,13 @@ char tastenLayout[anzZeilen][anzSpalten] = {
   { '*', '0', '#', 'D' }
 };
 
-//Hier definieren wie das Keypad mit den IO Pins vom PCF8574 verdrahtet ist.
-byte zeilenPins[anzZeilen] = { 0, 1, 2, 3 };    //Zeilen Pins
-byte spaltenPins[anzSpalten] = { 4, 5, 6, 7 };  //Spalten Pins
+
+byte zeilenPins[anzZeilen] = { 0, 1, 2, 3 };
+byte spaltenPins[anzSpalten] = { 4, 5, 6, 7 };
 
 //Initialisierung von Keypad
 Keypad_I2C i2cKeypad(makeKeymap(tastenLayout), zeilenPins, spaltenPins, anzZeilen, anzSpalten, I2CADDR);
 
-/*******************************************(setup)****************************************/
 void setup() {
   Wire.begin();
   i2cKeypad.begin();
@@ -38,7 +38,6 @@ void setup() {
   }
 }
 
-/*************************************(Hauptprogramm)**************************************/
 void loop() {
   
 }
